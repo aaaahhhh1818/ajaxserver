@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Kakao 지도 시작하기</title>
+</head>
+<body>
+<style>
+  .map {
+    width:100vw;
+    height: 50vh;
+  }
+</style>
+
+<div id="map" class="map"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=434a084704c5addbe3caa5baf1f2bf8c"></script>
+<script>
+  const container = document.getElementById('map');
+  const options = {
+    center: new kakao.maps.LatLng(37.5703794,126.9858001),
+    level: 3 //줌 레벨. 레벨이 커질수록 지도가 줄어든다
+  };
+
+  const map = new kakao.maps.Map(container, options);
+</script>
+</body>
+</html>

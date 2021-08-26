@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Test1 HTML</h1>
+<button id="btn">CLICK</button>
+
+<div id="result">
+
+</div>
+
+<script>
+
+    //순수한 자바스크립트로 만들기
+
+    document.querySelector("#btn").addEventListener("click", function() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() { //동기화된 통신X
+            const jsonStr = xhttp.responseText //JSON 문자열 가져옴
+            console.log(jsonStr)
+
+            const obj = JSON.parse(jsonStr) //문자열 -> object로 바뀜
+            console.log(obj)
+        }
+        xhttp.open("GET", "/time", true); //어디로 호출할지 //true 비동기 여부 (default 값)
+        xhttp.send();
+    }, false)
+
+</script>
+
+</body>
+</html>
